@@ -298,7 +298,7 @@ footer {
 /* ============================================================
    7. AJUSTES MÓVEIS
    ============================================================ */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .header { height: 250px; }
   .header h1 {
     font-size: 2.2rem;
