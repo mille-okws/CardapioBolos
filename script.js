@@ -299,14 +299,20 @@ function askFinish() {
 
 function sendWhatsApp() {
     if (!cart.length) return;
-    var msg   = '🧁 *Novo Pedido - Atelie de Bolos*\n\n';
+    
+    var phoneNumber = '5562994532626'; // Número com código do país + DDD
+    var msg   = '*Novo Pedido - Atelie de Bolos*\n\n';
     var total = 0;
+
     cart.forEach(function(item, i) {
         msg   += '*' + (i + 1) + '. ' + item.name + '*\n   R$ ' + item.price.toFixed(2).replace('.', ',') + '\n\n';
         total += item.price;
     });
-    msg += '💰 *TOTAL: R$ ' + total.toFixed(2).replace('.', ',') + '*';
-    window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+
+    msg += '*TOTAL: R$ ' + total.toFixed(2).replace('.', ',') + '*';
+
+    // A mágica acontece aqui: o número vai antes do '?text='
+    window.open('https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
 // ─── NAVEGACAO POR CATEGORIA ──────────────────────────────────────
